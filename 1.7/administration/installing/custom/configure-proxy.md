@@ -16,7 +16,7 @@ By default the DC/OS [Universe](https://github.com/mesosphere/universe) reposito
     no_proxy=".mesos,.thisdcos.directory,.dcos.directory,.zk,127.0.0.1,localhost"
     ```
     
-    If you are not sure about the values for `http_proxy` and `https_proxy` variables for your environment, Please contact your system administrator.
+    If you are not sure about the values for `http_proxy` and `https_proxy` variables for your environment, contact your system administrator.
     
     If you have any hosts or domains you would like to bypass the proxy you can add them to the `no_proxy` variable like this: `no_proxy=".mesos,.thisdcos.directory,.dcos.directory,.zk,127.0.0.1,localhost,foo.bar.com,.baz.com"`
     
