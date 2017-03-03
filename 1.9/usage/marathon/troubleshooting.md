@@ -1,7 +1,7 @@
 ---
 post_title: Troubleshooting Service Deployment
 nav_title: Troubleshooting
-menu_order: 10
+menu_order: 50
 ---
 
 There are several reasons why your service may fail to deploy. Some possibilities include:
@@ -14,3 +14,5 @@ There are several reasons why your service may fail to deploy. Some possibilitie
 
 - `docker pull` is failing.
   If your app runs in a Docker image, the Mesos agent node will first have to pull the Docker image. If this fails, your app could get stuck in a "deploying" state. The Mesos agent logs (`<dcos-url>/mesos/#/agents/`) will contain this information.
+
+<!-- app definition is otherwise badly configured... messages from the UI, docs, messages from the CLI... what else? Hausenblas' script? -->
