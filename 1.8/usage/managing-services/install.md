@@ -28,12 +28,7 @@ $ dcos package install chronos
 
 From the DC/OS web interface you can install services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/docs/1.8/usage/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
-
-<<<<<<< HEAD
-From the DC/OS UI you can install services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/docs/1.8/usage/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
-=======
 -  **Universe tab**
->>>>>>> parent of 9598509... Suzanne comments
 
    1.  Navigate to the [**Universe**](/docs/1.8/usage/webinterface/#universe) tab in the DC/OS web interface.
    2.  Choose your package and click **Install package**. 
