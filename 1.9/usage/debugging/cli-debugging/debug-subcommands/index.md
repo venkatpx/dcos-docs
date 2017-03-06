@@ -11,7 +11,7 @@ The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug`. A 
 ## Prerequisites
 - A DC/OS cluster.
 - The DC/OS CLI installed.
-- A failing service or pod.
+- A service or pod that is failing or stuck in deployment.
 
 
 
