@@ -4,16 +4,53 @@ feature_maturity: experimental
 menu_order: 0
 ---
 
-The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug`. A large portion of this functionality is also available from the DC/OS web interface.
+The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug` to troubleshoot a stuck service or pod deployment. A large portion of this functionality is also available from the DC/OS web interface.
 
 # Using dcos marathon debug
 
 ## Prerequisites
 - A DC/OS cluster.
 - The DC/OS CLI installed.
-- A service or pod that is failing or stuck in deployment.
+- A service or pod that is stuck in deployment.
 
+## Sample Application definitions
+If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/docs/usage/marathon/application-basics/) to test the instructions in this section.
 
+- mem-app.json
+
+  ```json
+  {
+        "id": "mem-app",
+        "cmd": "sleep 1000",
+        "cpus": 0.1,
+        "mem": 12000,
+        "instances": 3,
+        "constraints": [
+                [
+                        "hostname",
+                        "UNIQUE"
+                ]
+        ]
+  }
+  ```
+
+- stuck-sleep.json
+
+  ```json
+  {
+          "id": "stuck-sleep",
+          "cmd": "sleep 1000",
+          "cpus": 0.1,
+          "mem": 3000,
+          "instances": 10,
+          "constraints": [
+                  [
+                          "hostname",
+                          "UNIQUE"
+                  ]
+          ]
+  }
+  ```
 
 ## dcos marathon debug list
 
@@ -27,13 +64,11 @@ ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED 
 /stuck-sleep  2017-02-28T19:09:25.56Z   9                    True     8                 7              2017-02-28T19:09:35.608Z  2017-02-28T19:09:25.566Z
 ```
 
-The output of the command shows how many instances of the service or pod still need to launch, how many Mesos resource offers have been processed, how many Mesos resource offers have been unused, and the since the last unused and used offer. Taken together, this output can show you at a glance which services or pods are failing, how badly they are failing, and how long they have been failing.
-
-<!-- what does `SINCE` mean? -->
+The output of the command shows how many instances of the service or pod still need to launch, how many Mesos resource offers have been processed, how many Mesos resource offers have been unused, and the since the last unused and used offer. Taken together, this output can show you at a glance which services or pods are stuck in deployment and how long they have been stuck.
 
 ## dcos marathon debug summary
 
-Once you know which services or pods are performing poorly, use the `dcos marathon debug summary /<app-id>|/<pod-id>` command to learn more about a particular failing service or pod.
+Once you know which services or pods are stuck in deployment, use the `dcos marathon debug summary /<app-id>|/<pod-id>` command to learn more about a particular stuck service or pod.
 
 ```bash
 dcos marathon debug summary /mem-app
@@ -61,4 +96,4 @@ HOSTNAME    ROLE  CONSTRAINTS  CPUS  MEM  DISK  PORTS  RECEIVED
 10.0.4.126   -         ok       -     -    ok     -    2017-02-28T23:25:11.913Z
 ```
 
-The output of the command shows which hosts are running the service or pod, and then the status of the role, constraints, CPUs, memory, disk, and ports the service or pod has requested. <!-- what does received mean here? is it when the offer was recevied? --> In the example above, you can see that one instance of `/mem-app` has a status of `ok` in all categories except memory. The other instance had fewer successful resource matches, with role, CPUs, memory, and ports having no match. With this information, you know more about where and how you need to modify your service or pod definition.
+The output of the command shows which hosts are running the service or pod, and then the status of the role, constraints, CPUs, memory, disk, and ports the service or pod has requested, as well as when the last resource offer was received. In the example above, you can see that one instance of `/mem-app` has a status of `ok` in all categories except memory. The other instance had fewer successful resource matches, with role, CPUs, memory, and ports having no match. With this information, you know more about where and how you need to modify your service or pod definition.
