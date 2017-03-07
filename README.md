@@ -1,10 +1,10 @@
 # DC/OS Documentation [![Build Status](https://jenkins.mesosphere.com/service/jenkins/buildStatus/icon?job=public-dcos-docs-master)](https://jenkins.mesosphere.com/service/jenkins/job/public-dcos-docs-master)
 Documentation for the Datacenter Operating System (DC/OS)
 
-These documents are used as source to generate [dev.dcos.io/docs](https://dev.dcos.io/docs) (staging) and [dcos.io/docs](/docs) (production). They are submoduled into [dcos-website](https://github.com/dcos/dcos-website) for deployment.
+These documents are used as source to generate [dev.dcos.io/docs](https://dev.dcos.io/docs) (staging and internal to Mesosphere) and [dcos.io/docs](/docs) (production). They are submoduled into [dcos-website](https://github.com/dcos/dcos-website) for deployment.
 
 
-**Issue tracking is moving to the [DCOS JIRA](https://dcosjira.atlassian.net/) ([docs component](https://dcosjira.atlassian.net/issues/?jql=project%20%3D%20DCOS%20AND%20component%20%3D%20docs)).
+**Issue tracking is moving to the [DCOS JIRA](https://jira.mesosphere.com/browse/DCOS_OSS) `documentation` component.
 Issues on Github will be disabled soon.**
 
 # Contributing
@@ -101,6 +101,7 @@ This page provides instructions on how to contribute to the DC/OS documentation.
 - Use [GitHub-flavored markdown](https://help.github.com/enterprise/11.10.340/user/articles/github-flavored-markdown/).
 - Use relative links.
   - Begin all links at the root `docs` level and include the version number subdirectory. (e.g., `/docs/1.8/administration/sshcluster/`).
+- For links that end with parenthesis, you must use the HTML code `&#41;` for the closing parenthesis. For example, this link `[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))` should instead be `[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix&#41;)`.
 - Do not include file extensions in your link or image paths. For example, the directory `/docs/1.8/administration/` contains a file named `user-management.md`. To link to this content on the live site, you would use the following path: `/docs/1.8/administration/user-management/`.
 - Each directory must contain an `index.md` file. This acts as the base-level topic for each folder in the site (required).
 - The table of contents of each page is automatically generated based on the top-level headers.
