@@ -14,11 +14,8 @@ This topic lists the ports that are required to launch DC/OS. Additional ports m
 | 61003 | REX-Ray | `dcos-rexray.service` |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` |
 | 61420 | Erlang Port Mapping Daemon | `dcos-epmd.service` |
-| 61421 | Minuteman | `dcos-minuteman.service` |
 | 62053 | Spartan | `dcos-spartan.service` |
 | 62501 | Spartan | `dcos-spartan.service` |
-| 62503 | Minuteman | `dcos-minuteman.service` |
-| 32768 - 65535 | Navstar | `dcos-navstar.service` |
 
 ### UDP
 
@@ -26,7 +23,6 @@ This topic lists the ports that are required to launch DC/OS. Additional ports m
 |---|---|
 | 61053 | Mesos DNS | `dcos-mesos-dns.service`|
 | 62053 | Spartan | `dcos-spartan.service` |
-| 32768 - 65535 | Navstar | `dcos-navstar.service` |
 
 ## Master
 
