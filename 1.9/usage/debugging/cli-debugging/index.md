@@ -1,7 +1,7 @@
 ---
 post_title: Debugging from the DC/OS CLI
 feature_maturity: experimental
-menu_order: 0
+menu_order: 10
 ---
 
 The DC/OS CLI offers a number of commands to debug services that are not deploying or not behaving as expected.

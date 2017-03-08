@@ -22,7 +22,7 @@ $ dcos task log --follow <service-name>
 
 You access the logs for the master node with the following CLI command:
 
-``bash
+```bash
 $ dcos node log --leader
 ```
 

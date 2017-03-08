@@ -6,22 +6,6 @@ menu_order: 0
 
 The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug`, to troubleshoot a stuck service or pod deployment. A large portion of this functionality is also available from the DC/OS web interface.
 
-# How Offer Matching Works
-
-DC/OS services or pods often fail to deploy because the resource offers from Mesos do not match or cannot match the resources the service or pod requests in the [Marathon application definition](/docs/1.9/usage/marathon/application-basics/)). Below is an overview of the offer matching process.
-
-1. You post an application or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The service specifies resource requirements and/or placement constraints as well as the number of instances to launch.
-
-1. Marathon adds the new service or pod to the launch queue.
-
-1. Every 5 seconds (by default), Mesos sends one offer per agent.
-
-1. For each reseource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
-
-1. If an offer never arrives that match a service or pod's requirements and constraints, Marathon will not be able to launch the application.
-
-If there is never an offer showing up containing for example 100cpus, marathon will not be able to launch this application requesting 100cpus, because it does not fit inside the given offer.
-
 # Using dcos marathon debug
 
 ## Prerequisites
