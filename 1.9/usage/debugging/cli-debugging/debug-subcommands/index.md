@@ -4,7 +4,7 @@ feature_maturity: experimental
 menu_order: 0
 ---
 
-The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug` to troubleshoot a stuck service or pod deployment. A large portion of this functionality is also available from the DC/OS web interface.
+The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug`, to troubleshoot a stuck service or pod deployment. A large portion of this functionality is also available from the DC/OS web interface.
 
 # How Offer Matching Works
 
