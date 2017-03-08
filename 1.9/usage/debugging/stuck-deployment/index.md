@@ -16,9 +16,7 @@ DC/OS services or pods often fail to deploy because the resource offers from Mes
 
 1. For each reseource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
 
-1. If an offer never arrives that match a service or pod's requirements and constraints, Marathon will not be able to launch the application.
-
-If there is never an offer showing up containing for example 100cpus, marathon will not be able to launch this application requesting 100cpus, because it does not fit inside the given offer.
+1. If an offer never arrives that matches a service or pod's requirements and constraints, Marathon will not be able to launch the application.
 
 # Why Your Service or Pod is Stuck
 
