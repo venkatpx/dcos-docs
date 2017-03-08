@@ -1,5 +1,5 @@
 ---
-post_title: DC/OS CLI Debug Subcommands
+post_title: Debug Subcommands for Stuck Deployments
 feature_maturity: experimental
 menu_order: 0
 ---
