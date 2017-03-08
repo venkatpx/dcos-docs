@@ -6,6 +6,22 @@ menu_order: 0
 
 The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug` to troubleshoot a stuck service or pod deployment. A large portion of this functionality is also available from the DC/OS web interface.
 
+# How Offer Matching Works
+
+DC/OS services or pods often fail to deploy because the resource offers from Mesos do not match or cannot match the resources the service or pod requests in the [Marathon application definition](/docs/usage/marathon/application-basics/)). Below is an overview of the offer matching process.
+
+1. You post an application or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The service specifies resource requirements and/or placement constraints as well as the number of instances to launch.
+
+1. Marathon adds the new service or pod to the launch queue.
+
+1. Every 5 seconds (by default), Mesos sends one offer per agent.
+
+1. For each reseource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
+
+1. If an offer never arrives that match a service or pod's requirements and constraints, Marathon will not be able to launch the application.
+
+If there is never an offer showing up containing for example 100cpus, marathon will not be able to launch this application requesting 100cpus, because it does not fit inside the given offer.
+
 # Using dcos marathon debug
 
 ## Prerequisites
@@ -14,7 +30,7 @@ The DC/OS CLI provides a set of debugging subcommands, `dcos marathon debug` to 
 - A service or pod that is stuck in deployment.
 
 ## Sample Application definitions
-If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/docs/usage/marathon/application-basics/) to test the instructions in this section.
+If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/docs/1.9/usage/marathon/application-basics/) to test the instructions in this section.
 
 - mem-app.json
 
@@ -64,7 +80,7 @@ ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED 
 /stuck-sleep  2017-02-28T19:09:25.56Z   9                    True     8                 7              2017-02-28T19:09:35.608Z  2017-02-28T19:09:25.566Z
 ```
 
-The output of the command shows how many instances of the service or pod still need to launch, how many Mesos resource offers have been processed, how many Mesos resource offers have been unused, and the since the last unused and used offer. Taken together, this output can show you at a glance which services or pods are stuck in deployment and how long they have been stuck.
+The output of the command shows how many instances of the service or pod still need to launch, how many Mesos resource offers have been processed, how many Mesos resource offers have been unused, and the the time when the service or pod entered the launch queue (that is, the time the user either created or updated the service or pod). Taken together, this output can show you at a glance which services or pods are stuck in deployment and how long they have been stuck.
 
 ## dcos marathon debug summary
 
