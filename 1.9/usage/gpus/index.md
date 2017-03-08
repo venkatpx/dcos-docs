@@ -1,7 +1,7 @@
 ---
 post_title: Configure Your Service for GPUs
 nav_title: Using GPUs
-feature_maturity: experimental
+feature_maturity: preview
 menu_order: 75 
 ---
 

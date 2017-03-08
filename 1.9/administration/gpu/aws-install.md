@@ -1,7 +1,7 @@
 ---
 post_title: Configure Your AWS Cluster
 nav_title: Configure Your AWS Cloud Cluster
-feature_maturity: experimental
+feature_maturity: preview
 menu_order: 0
 ---
 

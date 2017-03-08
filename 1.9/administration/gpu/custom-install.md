@@ -1,7 +1,7 @@
 ---
 post_title: Configure a Non-AWS Cluster
 nav_title: Configure a Non-AWS Cluster
-feature_maturity: experimental
+feature_maturity: preview
 menu_order: 10
 ---
 
