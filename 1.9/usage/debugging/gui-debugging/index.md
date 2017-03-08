@@ -4,7 +4,7 @@ feature_maturity: experimental
 menu_order: 20
 ---
 
-You can also debug your service or pod from the DC/OS web interface.
+You can debug your service or pod from the DC/OS web interface.
 
 ## Service and Pod Health and Status Summaries
 
