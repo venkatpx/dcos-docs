@@ -6,7 +6,7 @@ menu_order: 3.4
 
 DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services.
 
-The logging component provides an HTTP API (`/system/v1/logs/`) which exposes the Mesos system logs.
+The logging component provides an HTTP API (`/system/v1/logs/`) which exposes the system logs.
 
 ## Service and Task Logs
 

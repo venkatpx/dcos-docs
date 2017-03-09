@@ -20,7 +20,7 @@ The API request header can be any the following:
 
 The host name to use will vary depending on where your app is running.
 
-- If your app will run inside of the cluster, use `http[s]://localhost[:80]`.
+- If your app will run inside of the cluster, use `http[s]://localhost`.
 - If your app will run outside of the DC/OS cluster, you should use the cluster URL. In a production environment, this should be the path to the load balancer that sits in front of your masters. 
 
   **Tip:** To obtain the cluster URL, use either of these methods:
