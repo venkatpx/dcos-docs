@@ -26,7 +26,7 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos
+    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.9/dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
@@ -88,7 +88,7 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.8/dcos
+    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.9/dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
@@ -149,7 +149,7 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
 
 1.  Run command-line environment as Administrator.
 
-1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.8/dcos.exe)).
+1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.9/dcos.exe)).
 
 1.  Point the CLI to your DC/OS master node. In this example, `http://example.com` is the master node IP address.
 
