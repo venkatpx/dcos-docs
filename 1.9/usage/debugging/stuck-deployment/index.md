@@ -13,7 +13,7 @@ DC/OS services or pods often fail to deploy because the resource offers from Mes
 
 1. Every 5 seconds (by default), Mesos sends one offer per agent.
 
-1. For each reseource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
+1. For each resource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
 
 1. If an offer never arrives that matches a service or pod's requirements and constraints, Marathon will not be able to launch the application.
 
