@@ -4,18 +4,17 @@ feature_maturity: experimental
 menu_order: 3
 ---
 
-
 # About the Logging API
 
 Use the Logging API to get the system logs from DC/OS.
 
 # Response format
 
-The API supports JSON only. You do not need to send any JSON, but must indicate `Accept: application/json` in the HTTP header, as shown below.
-
-```bash
-Accept: application/json
-```
+The API request header can be any the following:
+        
+- `text/plain`, `text/html`, `*/*` request logs in text format, ending with `\n`.
+- `application/json` request logs in JSON format.
+- `text/event-stream` request logs in Server-Sent-Events format.
 
 # Host name and base path
 
@@ -37,55 +36,9 @@ Append `/system/v1/logs/v1/` to the host name, as shown below.
 https://<host-name-or-ip>/system/v1/logs/v1/
 ```
 
-## Endpoints
+# API reference
 
-Every DC/OS node exposes these endpoints:
-
-- `/system/v1/logs/v1/range/` get a range of logs matching the request query.
-- `/system/v1/logs/v1/stream/` tail logs keeping the connection opened, implements server sent events.
-- `/system/v1/logs/v1/fields/<field>` returns all possible unique values for a specific `<field>`.
-
-Agent node endpoint:
-
-- `/system/v1/logs/v1/range/framework/{framework_id}/executor/{executor_id}/container/{container_id}` get a range of application logs.
-
-Master node endpoint:
-- `/system/v1/agent/<agent_id>/logs/v1/{range|stream}` reverse proxied to an appropriate agent based on `<agent_id>` parameter.
-
-## Request Header Accept
-- `text/plain`, `text/html`, `*/*` request logs in text format, ending with `\n`.
-- `application/json` request logs in JSON format.
-- `text/event-stream` request logs in Server-Sent-Events format.
-
-## Request Header Last-Event-ID
-If `Last-Event-ID` is set dcos-log will use it as a cursor position. `Last-Event-ID` header works with `/stream/` endpoints only.
-
-**Important:** Accept header `text/event-stream` cannot be used with `/fields/<field>` endpoint.
-
-## GET parameters:
-- `?filter=FIELD:value` add match.
-- `?limit=N` limit number of entries.
-- `?skip_next=N` skip forward number of entries from the current cursor position.
-- `?skip_prev=N` skip backwards number of entries from the current cursor position.
-- `?cursor=CURSOR` set cursor position. (Special characters must be escaped).
-- `?read_reverse=true` read the journal in opposite direction (bottom to top).
-
-where
-
-- `FIELD`, `value` and `CURSOR` are strings.
-- `N` is uint64.
-
-**Important:**
-
-- It is possible to move to the tail of the journal. If the `?cursor` parameter is not used then we consider the cursor is pointing to a head of the journal. `?skip_prev=1` can be used to move to the tail of the journal (very last entry). If you need to read last 10 entries you should use `?skip_prev=10`.
-- Parameter `?limit` cannot be used with `/stream/` endpoint.
-
-## Response codes:
-- `200` OK.
-- `204` Content not found, returned if no entries matching requesting filters.
-- `400` Bad request, returned if request is incorrect.
-- `500` Internal server error.
-
+[api-explorer api='/1.9/api/dcos-log.yaml']
 
 # Examples
 
