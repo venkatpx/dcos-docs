@@ -7,7 +7,7 @@ menu_order: 0
 
 DC/OS services or pods often fail to deploy because the resource offers from Mesos do not match or cannot match the resources the service or pod requests in the [Marathon application definition](/docs/1.9/usage/marathon/application-basics/)). Below is an overview of the offer matching process.
 
-1. You post an application or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The service specifies resource requirements and/or placement constraints as well as the number of instances to launch.
+1. You post a service or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The service specifies resource requirements and/or placement constraints as well as the number of instances to launch.
 
 1. Marathon adds the new service or pod to the launch queue.
 
