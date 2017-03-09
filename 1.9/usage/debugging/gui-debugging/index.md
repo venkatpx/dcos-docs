@@ -1,6 +1,5 @@
 ---
 post_title: Debugging from the DC/OS Web Interface
-feature_maturity: experimental
 menu_order: 20
 ---
 

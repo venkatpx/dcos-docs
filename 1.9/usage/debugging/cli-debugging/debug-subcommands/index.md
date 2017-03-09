@@ -1,6 +1,6 @@
 ---
 post_title: Debug Subcommands for Stuck Deployments
-feature_maturity: experimental
+feature_maturity: stable 
 menu_order: 0
 ---
 

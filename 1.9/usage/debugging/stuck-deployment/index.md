@@ -1,6 +1,5 @@
 ---
 post_title: Stuck Deployments
-feature_maturity: experimental
 menu_order: 0
 ---
 
