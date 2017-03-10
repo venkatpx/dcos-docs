@@ -37,4 +37,4 @@ dcos package install <package-name> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/docs/1.9/usage/managing-services/config/).
+For an example, see the [documentation](/docs/1.9/usage/managing-services/config-universe-service/).
