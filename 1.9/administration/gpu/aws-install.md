@@ -37,4 +37,4 @@ menu_order: 0
 
     **Tip**: If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
-1. Create [an application definition that employs GPUs](/docs/1.9/usage/gpu/gpu-app-definition).
+1. Create [an application definition that employs GPUs](/docs/1.9/usage/gpu/).
