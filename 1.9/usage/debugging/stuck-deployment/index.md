@@ -17,6 +17,8 @@ DC/OS services or pods often fail to deploy because the resource offers from Mes
 
 1. If an offer never arrives that matches a service or pod's requirements and constraints, Marathon will not be able to launch the application.
 
+ **Note:** The required resources must all be available on a single host.
+
 # Why Your Service or Pod is Stuck
 
 There are several reasons why your service or pod may fail to deploy. Some possibilities include:
