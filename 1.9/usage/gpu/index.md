@@ -75,4 +75,4 @@ Once your service has deployed, check the contents of `stdout` to verify that th
 
 You will also see an entry for **GPU** on the **Configuration** tab of the page for your service.
 
-See [here for limitations and further information](/docs/1.9/usage/marathon/gpus/limitations/).
+See [here for limitations and further information](/docs/1.9/usage/gpu/limitations/).
