@@ -30,4 +30,4 @@ None.
 
 # Examples
 
-For examples, see the [documentation](/docs/1.9/usage/tutorials/inline-update/).
+For examples, see the [documentation](/docs/1.9/usage/managing-services/update-user-service/).

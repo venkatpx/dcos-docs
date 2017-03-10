@@ -35,4 +35,4 @@ dcos task log <file> <task> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/docs/1.9/administration/logging/service-logs/).
+For an example, see the [documentation](/docs/1.9/administration/logging/).
