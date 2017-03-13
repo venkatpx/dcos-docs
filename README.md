@@ -93,7 +93,7 @@ This page provides instructions on how to contribute to the DC/OS documentation.
 
 1. Submit a [pull request](https://help.github.com/articles/using-pull-requests/) against the [dcos-docs](https://github.com/dcos/dcos-docs) repo.
 
-  - Don't forget to add a link to this PR in your [JIRA issue](https://dcosjira.atlassian.net/).
+  - Don't forget to add a link to this PR in your [JIRA issue](https://jira.mesosphere.com/).
   - Community managers will test drive and validate contributions that include hands-on instructions, and they'll probably ask for improvements or modifications by commenting on your PR. If you agree with their changes make them in your local repo and repeat steps 5-7 above, or feel free to continue the discussion.
 
 ## <a name="styling"></a>Styling and formatting your contribution
