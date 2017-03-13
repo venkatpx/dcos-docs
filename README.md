@@ -21,7 +21,7 @@ This page provides instructions on how to contribute to the DC/OS documentation.
 
 1. Search [JIRA](https://jira.mesosphere.com/) to review the currently open issues and make sure that no one is already working on your issue. If you find an open issue that is unassigned that you want to work, you can assign it to yourself! If you don’t see an issue related to yours, [create a new issue](https://jira.mesosphere.com/secure/CreateIssue!default.jspa), select documentation as the component, and assign it to yourself.
 
-  <img src="/images/2017-01-11_JIRA_screen_cap.png"/>
+  <img src="/images/2017-03-13_JIRA_screen_cap.png"/>
 
 1. If this is your first contribution [Fork](https://help.github.com/articles/fork-a-repo/) the [dcos-docs](https://github.com/dcos/dcos-docs) repo. (Once you’ve forked the repo, that fork stays associated with your GitHub account. If you try to fork it again GitHub will remind you that you already have a fork.)
 
@@ -93,7 +93,7 @@ This page provides instructions on how to contribute to the DC/OS documentation.
 
 1. Submit a [pull request](https://help.github.com/articles/using-pull-requests/) against the [dcos-docs](https://github.com/dcos/dcos-docs) repo.
 
-  - Don't forget to add a link to this PR in your [JIRA issue](https://dcosjira.atlassian.net/).
+  - Don't forget to add a link to this PR in your [JIRA issue](https://jira.mesosphere.com/).
   - Community managers will test drive and validate contributions that include hands-on instructions, and they'll probably ask for improvements or modifications by commenting on your PR. If you agree with their changes make them in your local repo and repeat steps 5-7 above, or feel free to continue the discussion.
 
 ## <a name="styling"></a>Styling and formatting your contribution
