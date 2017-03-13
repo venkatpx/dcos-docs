@@ -11,7 +11,7 @@ Issues on Github will be disabled soon.**
 
 If this is your first contribution to an open source software (OSS) project, congratulations! Contributing to the documentation is a great way to get started. By following these instructions you can learn more about DC/OS, and contribute back to an OSS project right away. No expertise necessary!
 
-This page provides instructions on how to contribute to the DC/OS documentation. The process ensures that work is not duplicated, and that your contributions are merged and approved by the admins. To get started you need a [GitHub account](https://github.com/join?source=header-home) and an account on the [DC/OS JIRA](https://dcosjira.atlassian.net/admin/users/sign-up).
+This page provides instructions on how to contribute to the DC/OS documentation. The process ensures that work is not duplicated, and that your contributions are merged and approved by the admins. To get started you need a [GitHub account](https://github.com/join?source=header-home) and an account on the [DC/OS JIRA](https://jira.mesosphere.com/).
 
 - [Making your contribution](#making)
 - [Styling and formatting your contribution](#styling)
