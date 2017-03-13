@@ -1,15 +1,9 @@
 ---
-post_title: Using Mesos Containerizers
-nav_title: Mesos Containerizers
+nav_title: Universal Container Runtime
+post_title: Universal Container Runtime (UCR)
 feature_maturity: experimental
-menu_order: 40 
+menu_order: 20
 ---
-
-Containerizers allow you to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically.
-
-DC/OS supports the Mesos containerizer types [DC/OS Universal container runtime](http://mesos.apache.org/documentation/latest/containerizer/#Mesos) and [Docker containerizer](http://mesos.apache.org/documentation/latest/containerizer/#Docker).
-
-# DC/OS Universal container runtime
 
 The [Universal container runtime](http://mesos.apache.org/documentation/latest/container-image) extends the Mesos containerizer to support provisioning [Docker](https://docker.com/) container images ([AppC](https://github.com/appc/spec) coming soon). This means that you can use both the Mesos containerizer and other container image types in DC/OS. You can still use the Docker container runtime directly with DC/OS, but the Universal container runtime supports running Docker images without depending on the Docker Engine, which allows for better integration with Mesos.
 
@@ -47,23 +41,3 @@ The Mesos containerizer provides a `credential`, with a `principal` and an optio
 ```
 
 For the moment, you can only use these features of the Mesos containerizer via a JSON app definition, not through the DC/OS web interface.
-
-# Docker Containerizer
-
-Use the Docker containerizer if you need specific features of the Docker package. To specify the Docker containerizer, add the following to your Marathon application definition:
-
-```json
-{
-	"id": "docker",
-    "container": {
-		"type": "DOCKER",
-        "docker": {
-			"network": "HOST",
-          	"image": "<my-image>"
-        }
-    },
-    "args": ["<my-arg>"]
-}
-```
-* [Learn more about launching Docker containers on Marathon](http://mesosphere.github.io/marathon/docs/native-docker.html).
-* [Follow a Docker app tutorial](/docs/1.8/usage/managing-services/application-basics/deploy-docker-app/).
