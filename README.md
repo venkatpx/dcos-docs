@@ -19,7 +19,7 @@ This page provides instructions on how to contribute to the DC/OS documentation.
 
 ## <a name="making"></a>Making your contribution
 
-1. Search [JIRA](https://dcosjira.atlassian.net/issues/?filter=10201) to review the currently open issues and make sure that no one is already working on your issue. If you find an open issue that is unassigned that you want to work, you can assign it to yourself! If you don’t see an issue related to yours, [create a new issue](https://dcosjira.atlassian.net/secure/CreateIssue!default.jspa), select documentation as the component, and assign it to yourself.
+1. Search [JIRA](https://jira.mesosphere.com/) to review the currently open issues and make sure that no one is already working on your issue. If you find an open issue that is unassigned that you want to work, you can assign it to yourself! If you don’t see an issue related to yours, [create a new issue](https://jira.mesosphere.com/secure/CreateIssue!default.jspa), select documentation as the component, and assign it to yourself.
 
   <img src="/images/2017-01-11_JIRA_screen_cap.png"/>
 
