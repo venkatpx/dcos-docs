@@ -4,7 +4,7 @@ menu_order: 0
 ---
 
 
-In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
+In this tutorial, a containerized Ruby on Rails app named Tweeter in installed and deployed using DC/OS. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
 
 Tweeter:
 
@@ -41,18 +41,23 @@ From the DC/OS web interface [**Universe > Packages**](/docs/1.9/usage/webinterf
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
-1.  Find the **cassandra** package and click the **Install Package** button and accept the default installation. Cassandra will spin up to at least 3 nodes. 
-1.  Find the **kafka** package and click the **Install Package** button and accept the default installation. Kafka will spin up 3 brokers.
-1.  Find the **marathon-lb** package and click the **Install Package** button and accept the default installation.
+1.  Find the **cassandra** package and click the **INSTALL PACKAGE** button and accept the default installation. Cassandra will spin up to at least 3 nodes. 
+    ![Cassandra](/docs/1.9/usage/tutorials/img/tweeter-services1.png)
+1.  Find the **kafka** package and click the **INSTALL PACKAGE** button and accept the default installation. Kafka will spin up 3 brokers.
+    ![Kafka](/docs/1.9/usage/tutorials/img/tweeter-services2.png)
+1.  Find the **marathon-lb** package and click the **INSTALL PACKAGE** button and accept the default installation.
 1.  Install Zeppelin.
-    1.  Find the **zeppelin** package and click the **Install Package** button and choose the **Advanced Installation** option. 
+    1.  Find the **zeppelin** package and click the **INSTALL PACKAGE** button and choose the **ADVANCED INSTALLATION** option. 
+        ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services3.png)    
     1.  Click the **spark** tab and set `cores_max` to `8`. 
-    1.  Click **Review and Install** and complete your installation.    
+        ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services4.png)
+    1.  Click **REVIEW AND INSTALL** and complete your installation.
+        ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services5.png)
 1.  Monitor the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     **Tip:** It can take up to 10 minutes for Cassandra to initialize with DC/OS because of race conditions.
     
-    ![Deployed services](../img/tweeter-deployed-services.png)
+    ![Services tab with all services shown.](/docs/1.9/usage/tutorials/img/tweeter-services6.png)
 
 # Deploy the containerized app
 
@@ -100,22 +105,59 @@ In this step you deploy the containerized Tweeter app to a public node.
     $ dcos marathon app update tweeter instances=<number_of_desired_instances>
     ```
 
-    The service talks to Cassandra via `node-0.cassandra.mesos:9042`, and Kafka via `broker-0.kafka.mesos:9557` in this example. Traffic is routed via the Marathon-LB (Marathon-LB) because you added the HAPROXY_0_VHOST tag on the `tweeter.json` definition.
+    The service talks to Cassandra via `node-0.cassandra.mesos:9042`, and Kafka via `broker-0.kafka.mesos:9557` in this example. Traffic is routed via the Marathon-LB (Marathon-LB) because you added the HAPROXY_0_VHOST tag on the `tweeter.json` app definition file.
 
-1.  Go to the DC/OS web interface to verify your app is up and healthy. Then, navigate to [public agent][9] node to see the Tweeter UI and post a Tweet.
+1.  Go to the **Services** tab to verify your app is up and healthy. 
+
+    ![Tweeter deployed](/docs/1.9/usage/tutorials/img/tweeter-services7.png)
+
+1.  Navigate to [public agent][9] node endpoint to see the Tweeter UI and post a tweet!
 
     ![Tweeter][14]
 
 # Post 100K Tweets
 
-Use the `post-tweets.json` app a large number of Shakespeare tweets from a file:
+Deploy the post-tweets containerized app to see DC/OS load balancing in action. This app automatically posts a large number of tweets from Shakespeare. The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page. 
 
-        $ dcos marathon app add post-tweets.json
+1.  Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `tweeter/post-tweets.json` Marathon app definition file. 
+
+1.  Deploy the `post-tweets.json` Marathon app definition file. 
+
+    ```bash
+    $ dcos marathon app add post-tweets.json
+    ```
     
+1.  After the `post-tweets.json` is running:
+    
+    *  Refresh your browser to see the incoming Shakespeare tweets.
+    
+       ![Shakespeare tweets](/docs/1.9/usage/tutorials/img/tweeter-shakespeare.png)
+       
+    *  Click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action. 
 
-The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page. Click the **Networking** tab in the DC/OS web interface to see the load balancing in action.
+       ![Tweeter scaled](/docs/1.9/usage/tutorials/img/tweeter-services8.png)
 
-The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition. The app uses the service discovery and load balancer service that is installed on every DC/OS node. You can see the Tweeter app defined with this VIP in the json definition under `VIP_0`.
+The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
+
+```json
+{
+  "id": "/post-tweets",
+  "cmd": "bin/tweet shakespeare-tweets.json http://1.1.1.1:30000",
+...
+```
+
+The Tweeter app uses the service discovery and load balancer service that is installed on every DC/OS node. This address is defined in the `tweeter.json` definition `VIP_0`.
+
+```bash
+...
+{
+  "containerPort": 3000,
+  "hostPort": 0,
+  "servicePort": 10000,
+  "labels": {
+    "VIP_0": "1.1.1.1:30000"
+...
+```
 
 # Add Streaming Analytics
 
