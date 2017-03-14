@@ -46,13 +46,13 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 1.  Find the **kafka** package and click the **INSTALL PACKAGE** button and accept the default installation. Kafka will spin up 3 brokers.
     ![Kafka](/docs/1.9/usage/tutorials/img/tweeter-services2.png)
 1.  Find the **marathon-lb** package and click the **INSTALL PACKAGE** button and accept the default installation.
+    ![Marathon-LB](/docs/1.9/usage/tutorials/img/tweeter-services9.png)
 1.  Install Zeppelin.
     1.  Find the **zeppelin** package and click the **INSTALL PACKAGE** button and choose the **ADVANCED INSTALLATION** option. 
         ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services3.png)    
     1.  Click the **spark** tab and set `cores_max` to `8`. 
         ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services4.png)
     1.  Click **REVIEW AND INSTALL** and complete your installation.
-        ![Zeppelin](/docs/1.9/usage/tutorials/img/tweeter-services5.png)
 1.  Monitor the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     **Tip:** It can take up to 10 minutes for Cassandra to initialize with DC/OS because of race conditions.
@@ -63,37 +63,35 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 
 In this step you deploy the containerized Tweeter app to a public node.
 
-1.  Clone the [Tweeter][13] GitHub repository to your local directory.
+1.  Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `/tweeter/tweeter.json` Marathon app definition file. 
 
-    ```bash
-    $ git clone git@github.com:mesosphere/tweeter.git
-    ```
-
-2.  Add the `HAPROXY_0_VHOST` label to the `tweeter.json` Marathon app definition file. `HAPROXY_0_VHOST` exposes Nginx on the external load balancer with a virtual host. The `HAPROXY_0_VHOST` value is the hostname of your [public agent][9] node. 
+1.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file. 
 
     **Important:** You must remove the leading `http://` and the trailing `/`. 
     
     ```json
+    ...
       ],
       "labels": {
         "HAPROXY_GROUP": "external",
-        "HAPROXY_0_VHOST": "<Master-Public-IP>"
+        "HAPROXY_0_VHOST": "<public-agent-IP>"
       }
     }
     ```
     
-    For example, if you are using AWS, this is your public ELB hostname. It should look similar to this: 
+    In this example, a DC/OS cluster is running on AWS: 
     
     ```bash
+    ...
       ],
       "labels": {
         "HAPROXY_GROUP": "external",
-        "HAPROXY_0_VHOST": "joel-oss-publicsl-e21skwtlxt0c-2029962837.us-west-2.elb.amazonaws.com"
+        "HAPROXY_0_VHOST": "joel-ent-publicsl-e7wjol669l9f-741498241.us-west-2.elb.amazonaws.com"
       }
     }
     ```
 
-4.  Install and deploy Tweeter with this command.
+4.  Install and deploy Tweeter to your DC/OS cluster with this CLI command. 
     
     ```bash
     $ dcos marathon app add tweeter.json
@@ -105,7 +103,7 @@ In this step you deploy the containerized Tweeter app to a public node.
     $ dcos marathon app update tweeter instances=<number_of_desired_instances>
     ```
 
-    The service talks to Cassandra via `node-0.cassandra.mesos:9042`, and Kafka via `broker-0.kafka.mesos:9557` in this example. Traffic is routed via the Marathon-LB (Marathon-LB) because you added the HAPROXY_0_VHOST tag on the `tweeter.json` app definition file.
+    The service talks to Cassandra via `node-0.cassandra.mesos:9042`, and Kafka via `broker-0.kafka.mesos:9557` in this example. Traffic is routed via Marathon-LB because of the `HAPROXY_0_VHOST` definition in the `tweeter.json` app definition file.
 
 1.  Go to the **Services** tab to verify your app is up and healthy. 
 
