@@ -3,7 +3,7 @@ nav_title: Using Containerizers
 menu_order: 40
 ---
 
-Containerizers allow you to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically. <!-- networking... -->
+Containerizers allow you to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically.
 
 DC/OS supports the Mesos containerizer types :
 
@@ -33,22 +33,20 @@ The tables below provide a feature comparison of your containerizer choices on D
 | **[Health Checks](link)**								| Yes					| Yes										| Yes				|					 |
 | **All Security Modes**									| Yes					| Yes										| Yes				| Enterprise only |
 
- <!-- does this mean I have to make this section separate for EE? bleh -->
-
 ## Storage
 
 |																					|	Docker			|	Original Mesos				|	UCR				|Comments |
 | --------------------------------------- | ----------- | --------------------- | --------- | --------- |
 | **Ephemeral Volumes**  									|	Yes					| Yes										| Yes				|						|
 | **Local Persistent Volumes**						| Yes					| Yes										| Yes				|						|
-| **Host Volumes**												| Yes					| Yes?									| Yes				| not in UI |
+| **Host Volumes**												| Yes					| Yes									  | Yes				| not in UI |
 
 ## Service Endpoints
 
 |																					|	Docker			|	Original Mesos				|	UCR				|Comments   |
 | --------------------------------------- | ----------- | --------------------- | --------- | --------- |
 | **Named Ports**													| No					| No										| No				|						|
-| **Numbered Ports**											| Yes					| No?										| No?				|						|
+| **Numbered Ports**											| Yes					| No										| No				|						|
 | **Layer 4 Load Balancer**								| Yes					| Yes										| Yes				| Requires defined service endpoints, TCP health checks do not work with L4LB |
 
 ## Networking

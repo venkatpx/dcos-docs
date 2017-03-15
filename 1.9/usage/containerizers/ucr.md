@@ -20,7 +20,7 @@ The Universal Container Runtime offers the following advantages:
 
 1. In the **Container Image** field, enter your Docker container image.
 
-# Provision Docker Containers with the Universal Container Runtime from the DC/OS CLI <!-- I need some more examples! -->
+# Provision Docker Containers with the Universal Container Runtime from the DC/OS CLI
 
 To provision Docker containers with the UCR from the DC/OS CLI, specify the container type `MESOS` and a `docker` object in your [Marathon application definition](http://mesosphere.github.io/marathon/docs/application-basics.html).
 
