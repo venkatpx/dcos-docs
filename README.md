@@ -119,7 +119,7 @@ In addition to the above technical notes, make sure you read your doc for clarit
 - Don’t zoom in/out on your browser. This creates weird styling issues.
 - Be careful of focus. For example, be careful that the browser toolbar is not the focus. This causes the viewer to assume there is a reason we are focused on the address bar.
 - Crop to the pixel. If you want a clean capture of the entire browser:
-    - (a) loose the browser entirely and crop to the exact bounds of the UI 
+    - (a) lose the browser entirely and crop to the exact bounds of the UI 
     - (b) use CMD+SHIFT+4 then hit SPACE then click the window you want to capture
 
 ## <a name="test-local"></a>Building and testing your content locally
