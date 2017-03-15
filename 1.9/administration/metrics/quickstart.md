@@ -1,14 +1,14 @@
 ---
 post_title: Quick Start
 menu_order: 0
-feature_maturity: experimental
+feature_maturity: preview
 ---
 
 Use this guide to get started with the DC/OS metrics component. 
 
 **Prerequisites:** 
 
-- At least one [DC/OS service](/docs/1.9/usage/marathon/application-basics/) is deployed.
+- At least one [DC/OS service](/docs/1.9/usage/managing-services/application-basics/) is deployed.
 - Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 
 The metrics component is natively integrated with DC/OS and no additional setup is required.  

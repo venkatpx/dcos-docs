@@ -1,12 +1,14 @@
 ---
 post_title: Logging
-feature_maturity: experimental
+feature_maturity: preview
 menu_order: 3.4
 ---
 
 DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services.
 
 ## Service, Task, and Node Logs
+
+The logging component provides an HTTP API (`/system/v1/logs/`), which exposes the system logs.
 
 You can access information about DC/OS scheduler services, like Marathon or Kafka, with the following CLI command:
 
@@ -47,8 +49,8 @@ $ journalctl -u "dcos-*" -b
 You can view the logs for specific [components](/docs/1.9/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
 
 ```bash
-journalctl -u dcos-nginx -b
-```
+$ journalctl -u dcos-nginx -b
+``` 
 
 You can find which components are unhealthy in the DC/OS GUI from the **Nodes** tab.
 
