@@ -1,6 +1,5 @@
 ---
 nav_title: Original Mesos Containerizer
-feature_maturity: 
 menu_order: 0
 ---
 

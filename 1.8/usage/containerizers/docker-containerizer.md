@@ -1,7 +1,6 @@
 ---
 nav_title: Docker Containerizer
 post_title: Docker Containerizer
-feature_maturity: experimental
 menu_order: 10
 ---
 
@@ -22,5 +21,6 @@ To specify the Docker containerizer, add the following to your Marathon applicat
     "args": ["<my-arg>"]
 }
 ```
-* [Learn more about launching Docker containers on Marathon](http://mesosphere.github.io/marathon/docs/native-docker.html).
-* [Follow a Docker app tutorial](/docs/1.8/usage/managing-services/application-basics/deploy-docker-app/).
+- [Learn more about launching Docker containers on Marathon](http://mesosphere.github.io/marathon/docs/native-docker.html).
+- [Follow a Docker app tutorial](/docs/1.8/usage/managing-services/application-basics/deploy-docker-app/).
+- [View the Mesos docs for the Mesos containerizer](http://mesos.apache.org/documentation/latest/containerizer/#Docker).

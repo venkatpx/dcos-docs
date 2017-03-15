@@ -1,6 +1,5 @@
 ---
 nav_title: Using Containerizers
-feature_maturity: experimental
 menu_order: 40
 ---
 
@@ -8,11 +7,11 @@ Containerizers allow you to run tasks in containers. Running tasks in containers
 
 DC/OS supports the Mesos containerizer types :
 
-- The original Mesos containerizer.
+- The [original Mesos containerizer](/docs/1.8/usage/containerizers/mesos-containerizer/).
 
-- The [DC/OS Universal Container Runtime](http://mesos.apache.org/documentation/latest/containerizer/#Mesos)
+- The [DC/OS Universal Container Runtime](/docs/1.8/usage/containerizers/ucr/)
 
-- The [Docker containerizer](http://mesos.apache.org/documentation/latest/containerizer/#Docker).
+- The [Docker containerizer](/docs/1.8/usage/containerizers/docker-containerizer/).
 
 The tables below provide a feature comparison of your containerizer choices on DC/OS.
 
