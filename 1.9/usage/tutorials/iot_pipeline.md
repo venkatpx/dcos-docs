@@ -190,3 +190,4 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [13]: https://github.com/mesosphere/tweeter
  [14]: ../img/tweeter.png
  [16]: ../img/top-tweeters.png
+ 

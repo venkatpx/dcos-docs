@@ -1,6 +1,5 @@
 ---
-post_title: Getting Started
-nav_title: Getting Started
+post_title: Quick Start
 feature_maturity: preview
 menu_order: 10
 ---
@@ -9,7 +8,7 @@ You can create and administer jobs in the DC/OS web interface, from the DC/OS CL
 
 # DC/OS Web Interface
 
-**Note:** The DC/OS web interface does not cover all possible CLI commands and API calls. For more advanced jobs configuration, use the `dcos job` commands of the DC/OS CLI or the Jobs API.
+**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](https://dcos.io/docs/1.9/usage/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
 
 ## Add a Job
 
@@ -184,7 +183,7 @@ To get the log for only a specific job run, use a job run ID from `dcos job hist
 $ dcos task log --completed <job-run-id>
 ```
 
-# Jobs API
+# <a name="jobs-api"></a>Jobs API
 
 You can also create and administer jobs via the API. [View the full API here](http://dcos.github.io/metronome/docs/generated/api.html).
 
