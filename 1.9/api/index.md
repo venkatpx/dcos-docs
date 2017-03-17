@@ -35,27 +35,19 @@ To determine the URL of your cluster, see [Cluster Access](/docs/1.9/api/access/
 
 - To determine the full URL of a API resource through a **proxy route**, join the cluster URL, route path, and backend component resource path.
 
-    ```
-    ${cluster-url}/{route}/{component-resource-path}
+    ```bash
+    ${cluster-url}/${route}/${component-resource-path}
     ```
 
-    For example, get the list of running Marathon applications from:
-
-    ```
-    https://dcos.example.com/marathon/v2/apps
-    ```
+    For example, get the list of running Marathon applications from: `https://dcos.example.com/marathon/v2/apps`
 
 - **File routes** have no backend component, but may serve a directory of files or a single file. So for file routes, specify the file path instead of the backend component resource path.
 
-    ```
-    ${cluster-url}/{route}/{file-path}
+    ```bash
+    ${cluster-url}/${route}/${file-path}
     ```
 
-    For example, get the DC/OS version of the cluster from:
-
-    ```
-    https://dcos.example.com/dcos-metadata/dcos-version.json
-    ```
+    For example, get the DC/OS version of the cluster from: `https://dcos.example.com/dcos-metadata/dcos-version.json`
 
 - **Rewrite and redirect routes** may pass through one or more other URLs or routes before returning a resource. So for those routes, follow the chain of URLs and routes to find the endpoint.
 
@@ -75,7 +67,7 @@ To determine which method to use, see the specific backend component's API refer
 
 ## Authentication
 
-Some routes are unauthenticated, but most require an auth token.
+Some routes are unauthenticated, but most require an authentication token.
 
 For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/docs/1.9/administration/id-and-access-mgt/iam-api/).
 
