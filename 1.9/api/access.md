@@ -3,7 +3,7 @@ post_title: Cluster Access
 menu_order: 1
 ---
 
-You can get the cluster address by using the following methods:
+You can get the cluster URL by using the following methods:
 
 - Log into the DC/OS GUI and copy the scheme and domain name from the browser address bar.
 - Log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL.
@@ -16,9 +16,9 @@ On the master nodes, Admin Router is accessible through standard ports: `80` (HT
 On the agent nodes, Admin Router Agent is accessible through port `61001` (HTTP).
 
 
-## Agent node address
+## Agent node access
 
-You can get the IP address of a specific agent node by using the following methods:
+You can find the hostname of a specific agent node by using the following methods:
 
 - Log into the DC/OS GUI, navigate to the Nodes page, and copy the hostname of the desired node.
 - Log into the DC/OS CLI, list the nodes with `dcos node`, and copy the hostname of the desired node.

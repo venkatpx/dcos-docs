@@ -13,9 +13,9 @@ Admin Router is an API gateway built on top of NGINX.
 
 Admin Router exposes four types of routes:
 
-- **Proxy Routes** retrieve resources from another address.
+- **Proxy Routes** retrieve resources from another URL.
 - **File Routes** retrieve static files.
-- **Redirect Routes** redirect to another address.
+- **Redirect Routes** redirect to another URL.
 - **Rewrite Routes** translate routes into other routes.
 
 Admin Router uses these route types to accomplish four primary goals:
@@ -28,7 +28,56 @@ Admin Router uses these route types to accomplish four primary goals:
 
 ## Cluster Access
 
-To determine the address of your cluster, see [Cluster Access](/docs/1.9/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/docs/1.9/api/access/).
+
+
+## Route Usage
+
+- To determine the full URL of a API resource through a **proxy route**, join the cluster URL, route path, and backend component resource path.
+
+    ```
+    ${cluster-url}/{route}/{component-resource-path}
+    ```
+
+    For example, get the list of running Marathon applications from:
+
+    ```
+    https://dcos.example.com/marathon/v2/apps
+    ```
+
+- **File routes** have no backend component, but may serve a directory of files or a single file. So for file routes, specify the file path instead of the backend component resource path.
+
+    ```
+    ${cluster-url}/{route}/{file-path}
+    ```
+
+    For example, get the DC/OS version of the cluster from:
+
+    ```
+    https://dcos.example.com/dcos-metadata/dcos-version.json
+    ```
+
+- **Rewrite and redirect routes** may pass through one or more other URLs or routes before returning a resource. So for those routes, follow the chain of URLs and routes to find the endpoint.
+
+    Most rewrites and redirects terminate in another DC/OS API route, with the notable exception of `/login`, which uses OpenID Connect to authorize with an external identity provider and then redirects back to the DC/OS API.
+
+
+## Versioning
+
+API versioning in DC/OS is delegated to each individual route or backend component.
+
+Some components use **URL versioning** with a path prefix, like `/v2/`, between the route and the resource path.
+
+Other components version their API by **content negotiation** using HTTP headers.
+
+To determine which method to use, see the specific backend component's API reference documentation.
+
+
+## Authentication
+
+Some routes are unauthenticated, but most require an auth token.
+
+For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/docs/1.9/administration/id-and-access-mgt/iam-api/).
 
 
 ## Route Topology
