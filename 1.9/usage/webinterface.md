@@ -97,7 +97,7 @@ Manage your DC/OS package repositories from the **Settings** tab.
 # Organization
 Manage user access from the **Organization** tab.
 
-![Organization](/docs/1.9/administration/monitoring/img/package-repositories.png)
+![Organization](/docs/1.9/administration/monitoring/img/organization.png)
 
 
 [3]: https://mesosphere.github.io/marathon/docs/health-checks.html
