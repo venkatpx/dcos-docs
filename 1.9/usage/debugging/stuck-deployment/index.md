@@ -5,17 +5,19 @@ menu_order: 0
 
 # How Offer Matching Works
 
-DC/OS services or pods often fail to deploy because the resource offers from Mesos do not match or cannot match the resources the service or pod requests in the [Marathon application definition](/docs/1.9/usage/marathon/application-basics/). Below is an overview of the offer matching process.
+DC/OS services or pods may fail to deploy because the Mesos resource offers are unable to match the resources requests coming from the service or pods [Marathon application definitions](/docs/1.9/usage/marathon/application-basics/).
 
-1. You post a service or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The service specifies resource requirements and/or placement constraints as well as the number of instances to launch.
+Here is an overview of the offer matching process.
+
+1. You post a service or pod definition to Marathon either via the DC/OS CLI (`dcos marathon app add <my-service>.json`) or the DC/OS web interface. The app definition specifies resource requirements, placement constraints, and the number of instances to launch.
 
 1. Marathon adds the new service or pod to the launch queue.
 
 1. Every 5 seconds (by default), Mesos sends one offer per agent.
 
-1. For each resource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements and constraints match the offer, Marathon will launch the service or pod.
+1. For each resource offer, Marathon checks if there is a service or pod in the launch queue whose requirements all match the offer. If Marathon finds a service or pod whose requirements match the offer, Marathon will launch the service or pod.
 
-1. If an offer never arrives that matches a service or pod's requirements and constraints, Marathon will not be able to launch the application.
+1. If a matching offer does not arrive that matches the requirements and constraints of a service or pod, Marathon is unable to launch the service or pod.
 
  **Note:** The required resources must all be available on a single host.
 

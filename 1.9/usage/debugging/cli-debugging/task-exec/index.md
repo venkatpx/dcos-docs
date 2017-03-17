@@ -1,13 +1,14 @@
 ---
 nav_title: dcos task exec
-post_title: The dcos task exec Command
 feature_maturity: experimental
 menu_order: 10
 ---
 
-The `dcos task exec` command allows you to execute an arbitrary command inside of a task's container and stream its output back to your local terminal in order to learn more about how a given task is behaving. It offers an experience very similar to [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/), without any need for SSH keys.
+The `dcos task exec` command allows you to execute an arbitrary command inside of a task's container and stream its output back to your local terminal to learn more about how a given task is behaving. It offers an experience very similar to [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/), without any need for SSH keys.
 
-You can execute this command in any of the following four modes.
+To use the debugging feature, the service or job must be launched using either the Mesos container runtime or the Universal container runtime. Debugging cannot be used on containers launched with the Docker runtime. See [Using Mesos Containerizers](https://dcos.io/docs/1.9/usage/containerizers/) for more information.
+
+You can execute this command in the following modes.
 
 - `dcos task exec <task-id> <command>` (no flags): streams STDOUT and STDERR from the remote terminal to your local terminal as raw bytes.
 
@@ -17,11 +18,9 @@ You can execute this command in any of the following four modes.
 
 - `dcos task exec --interactive --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal and streams STDIN from your local terminal to the remote terminal. Also puts your local terminal into raw mode; allocates a remote pseudo terminal (PYT); and streams STDOUT, STDERR, and STDIN through the remote PTY. This mode offers the maximum functionality.
 
-**Note:** If your mode streams raw bytes, you won't be able to launch programs like `vim`, because these programs require the use of control characters.
-
-**Tip:** We have included the text of the full flags above for readability, but each one can be shortened. Instead of typing `--interactive`, you can just type `-i`. Likewise, instead of typing `--tty`, you can just type `-t`.
-
-**Requirement:** To use the debugging feature, the service or job must be launched using either the Mesos container runtime or the Universal container runtime. Debugging cannot be used on containers launched with the Docker runtime. See [Using Mesos Containerizers](https://dcos.io/docs/1.9/usage/containerizers/) for more information.
+**Tips:**
+- We have included the text of the full flags above for readability, but each one can be shortened. Instead of typing `--interactive`, you can just type `-i`. Likewise, instead of typing `--tty`, you can just type `-t`.
+- If your mode streams raw bytes, you won't be able to launch programs like `vim`, because these programs require the use of control characters.
 
 <!-- Fork a Process Inside a Mesos Container, stream its output (OSS) -->
 <!-- Support Optional Stream of STDIN to Forked Process (OSS) -->
