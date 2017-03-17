@@ -3,7 +3,7 @@
         <h1>
             <a id="routes" href="#routes" aria-hidden="true" class="toggle-route-group" data-id="routes">Routes</a>
         </h1>
-        <span class="options"><a href="#routes" class="toggle-route-groups" data-state="hidden">Show/Hide All</a> </span>
+        <span class="options"><a href="#routes" class="toggle-route-groups" data-state="visible">Show/Hide All</a> </span>
     </div>
     <div class="legend">
         <div class="heading">
@@ -22,6 +22,11 @@
             <li class="route route-type-file">
                 <input type="checkbox" data-type="file" checked="checked">
                 <label class="heading"><span class="route-type toggle-route-type">File</span> <span class="route-desc">retrieves static files.</span> </label>
+                </input>
+            </li>
+            <li class="route route-type-lua">
+                <input type="checkbox" data-type="lua" checked="checked">
+                <label class="heading"><span class="route-type toggle-route-type">Lua</span> <span class="route-desc">executes Lua code to generate response.</span> </label>
                 </input>
             </li>
             <li class="route route-type-redirect">
@@ -45,7 +50,7 @@
                 </h2>
                 <span class="options"><a href="#root" class="toggle-route-group" data-id="root">Show/Hide</a> </span>
             </div>
-            <ul id="routes-root" class="routes" style="display:none;">
+            <ul id="routes-root" class="routes">
                 <li class="route route-type-file">
                     <div class="heading">
                         <h3>
@@ -77,7 +82,7 @@
                 </h2>
                 <span class="options"><a href="#agent" class="toggle-route-group" data-id="agent">Show/Hide</a> </span>
             </div>
-            <ul id="routes-agent" class="routes" style="display:none;">
+            <ul id="routes-agent" class="routes">
                 <li class="route route-type-rewrite">
                     <div class="heading">
                         <h3>
@@ -142,7 +147,7 @@
                 </h2>
                 <span class="options"><a href="#authentication" class="toggle-route-group" data-id="authentication">Show/Hide</a> </span>
             </div>
-            <ul id="routes-authentication" class="routes" style="display:none;">
+            <ul id="routes-authentication" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -234,7 +239,7 @@
                 </h2>
                 <span class="options"><a href="#capabilities" class="toggle-route-group" data-id="capabilities">Show/Hide</a> </span>
             </div>
-            <ul id="routes-capabilities" class="routes" style="display:none;">
+            <ul id="routes-capabilities" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -274,7 +279,7 @@
                 </h2>
                 <span class="options"><a href="#cosmos" class="toggle-route-group" data-id="cosmos">Show/Hide</a> </span>
             </div>
-            <ul id="routes-cosmos" class="routes" style="display:none;">
+            <ul id="routes-cosmos" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -314,7 +319,7 @@
                 </h2>
                 <span class="options"><a href="#exhibitor" class="toggle-route-group" data-id="exhibitor">Show/Hide</a> </span>
             </div>
-            <ul id="routes-exhibitor" class="routes" style="display:none;">
+            <ul id="routes-exhibitor" class="routes">
                 <li class="route route-type-redirect">
                     <div class="heading">
                         <h3>
@@ -377,7 +382,7 @@
                 </h2>
                 <span class="options"><a href="#history" class="toggle-route-group" data-id="history">Show/Hide</a> </span>
             </div>
-            <ul id="routes-history" class="routes" style="display:none;">
+            <ul id="routes-history" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -416,7 +421,7 @@
                 </h2>
                 <span class="options"><a href="#marathon" class="toggle-route-group" data-id="marathon">Show/Hide</a> </span>
             </div>
-            <ul id="routes-marathon" class="routes" style="display:none;">
+            <ul id="routes-marathon" class="routes">
                 <li class="route route-type-redirect">
                     <div class="heading">
                         <h3>
@@ -494,7 +499,7 @@
                 </h2>
                 <span class="options"><a href="#mesos" class="toggle-route-group" data-id="mesos">Show/Hide</a> </span>
             </div>
-            <ul id="routes-mesos" class="routes" style="display:none;">
+            <ul id="routes-mesos" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -594,7 +599,7 @@
                 </h2>
                 <span class="options"><a href="#mesos-dns" class="toggle-route-group" data-id="mesos-dns">Show/Hide</a> </span>
             </div>
-            <ul id="routes-mesos-dns" class="routes" style="display:none;">
+            <ul id="routes-mesos-dns" class="routes">
                 <li class="route route-type-redirect">
                     <div class="heading">
                         <h3>
@@ -656,7 +661,7 @@
                 </h2>
                 <span class="options"><a href="#metadata" class="toggle-route-group" data-id="metadata">Show/Hide</a> </span>
             </div>
-            <ul id="routes-metadata" class="routes" style="display:none;">
+            <ul id="routes-metadata" class="routes">
                 <li class="route route-type-file">
                     <div class="heading">
                         <h3>
@@ -728,12 +733,33 @@
                         </table>
                     </div>
                 </li>
-                <li class="route route-type-unknown">
+                <li class="route route-type-lua">
                     <div class="heading">
                         <h3>
-                            <span class="route-type">Unknown</span>
+                            <span class="route-type">Lua</span>
                             <span class="route-path"><code>/metadata</code></span>
                         </h3>
+                        <span class="route-desc">Public IP and Cluster ID</span>
+                    </div>
+                    <div class="route-meta" style="display:none">
+                        <table>
+                            <tr>
+                                <td>
+                                    Lua:
+                                </td>
+                                <td>
+                                    <code>conf/master/metadata.lua</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Backend:
+                                </td>
+                                <td>
+                                    Admin Router
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </li>
             </ul>
@@ -746,7 +772,7 @@
                 </h2>
                 <span class="options"><a href="#navstar" class="toggle-route-group" data-id="navstar">Show/Hide</a> </span>
             </div>
-            <ul id="routes-navstar" class="routes" style="display:none;">
+            <ul id="routes-navstar" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -785,7 +811,7 @@
                 </h2>
                 <span class="options"><a href="#package" class="toggle-route-group" data-id="package">Show/Hide</a> </span>
             </div>
-            <ul id="routes-package" class="routes" style="display:none;">
+            <ul id="routes-package" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -825,7 +851,7 @@
                 </h2>
                 <span class="options"><a href="#pkgpanda" class="toggle-route-group" data-id="pkgpanda">Show/Hide</a> </span>
             </div>
-            <ul id="routes-pkgpanda" class="routes" style="display:none;">
+            <ul id="routes-pkgpanda" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>
@@ -894,7 +920,7 @@
                 </h2>
                 <span class="options"><a href="#service" class="toggle-route-group" data-id="service">Show/Hide</a> </span>
             </div>
-            <ul id="routes-service" class="routes" style="display:none;">
+            <ul id="routes-service" class="routes">
                 <li class="route route-type-redirect">
                     <div class="heading">
                         <h3>
@@ -959,7 +985,7 @@
                 </h2>
                 <span class="options"><a href="#system" class="toggle-route-group" data-id="system">Show/Hide</a> </span>
             </div>
-            <ul id="routes-system" class="routes" style="display:none;">
+            <ul id="routes-system" class="routes">
                 <li class="route route-type-proxy">
                     <div class="heading">
                         <h3>

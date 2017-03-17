@@ -3,7 +3,7 @@
     <h1>
       <a id="routes" href="#routes" aria-hidden="true" class="toggle-route-group" data-id="routes">Routes</a>
     </h1>
-    <span class="options"><a href="#routes" class="toggle-route-groups" data-state="hidden">Show/Hide All</a> </span>
+    <span class="options"><a href="#routes" class="toggle-route-groups" data-state="visible">Show/Hide All</a> </span>
   </div>
   <div class="legend">
     <div class="heading">
@@ -19,21 +19,6 @@
         <label class="heading"><span class="route-type toggle-route-type">Proxy</span> <span class="route-desc">retrieves resources from another address.</span> </label>
         </input>
       </li>
-      <li class="route route-type-file">
-        <input type="checkbox" data-type="file" checked="checked">
-        <label class="heading"><span class="route-type toggle-route-type">File</span> <span class="route-desc">retrieves static files.</span> </label>
-        </input>
-      </li>
-      <li class="route route-type-redirect">
-        <input type="checkbox" data-type="redirect" checked="checked">
-        <label class="heading"><span class="route-type toggle-route-type">Redirect</span> <span class="route-desc">redirects to another address.</span> </label>
-        </input>
-      </li>
-      <li class="route route-type-rewrite">
-        <input type="checkbox" data-type="rewrite" checked="checked">
-        <label class="heading"><span class="route-type toggle-route-type">Rewrite</span> <span class="route-desc">retrieves resources from another route.</span> </label>
-        </input>
-      </li>
     </ul>
   </div>
   <ul class="resources">
@@ -45,7 +30,7 @@
         </h2>
         <span class="options"><a href="#pkgpanda" class="toggle-route-group" data-id="pkgpanda">Show/Hide</a> </span>
       </div>
-      <ul id="routes-pkgpanda" class="routes" style="display:none;">
+      <ul id="routes-pkgpanda" class="routes">
         <li class="route route-type-proxy">
           <div class="heading">
             <h3>
@@ -93,7 +78,7 @@
         </h2>
         <span class="options"><a href="#system" class="toggle-route-group" data-id="system">Show/Hide</a> </span>
       </div>
-      <ul id="routes-system" class="routes" style="display:none;">
+      <ul id="routes-system" class="routes">
         <li class="route route-type-proxy">
           <div class="heading">
             <h3>

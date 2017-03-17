@@ -11,14 +11,15 @@ The DC/OS API is a collection of routes backed by [DC/OS components](/docs/1.9/o
 
 Admin Router is an API gateway built on top of NGINX.
 
-Admin Router exposes four types of routes:
+Admin Router exposes several types of routes:
 
 - **Proxy Routes** retrieve resources from another URL.
 - **File Routes** retrieve static files.
+- **Lua Routes** execute Lua code to generate responses.
 - **Redirect Routes** redirect to another URL.
 - **Rewrite Routes** translate routes into other routes.
 
-Admin Router uses these route types to accomplish four primary goals:
+Admin Router uses these route types to accomplish these primary goals:
 
 - Present a unified control plane for the DC/OS API
 - Proxy API requests to component services on master and agent nodes
@@ -49,7 +50,15 @@ To determine the URL of your cluster, see [Cluster Access](/docs/1.9/api/access/
 
     For example, get the DC/OS version of the cluster from: `https://dcos.example.com/dcos-metadata/dcos-version.json`
 
-- **Rewrite and redirect routes** may pass through one or more other URLs or routes before returning a resource. So for those routes, follow the chain of URLs and routes to find the endpoint.
+- **Lua routes** immediately execute code in Admin Router without proxying to an external backend component. So for Lua routes, no path is required after the route.
+
+     ```bash
+     ${cluster-url}/${route}
+     ```
+
+     For example, get the public IP of the master node and cluster ID from: `https://dcos.example.com/metadata`
+
+- **Rewrite and redirect routes** may pass through one or more other URLs or routes before returning a resource. So for those routes, follow the chain of URLs and routes to find the endpoint. The resource path will depend on the final endpoint.
 
     Most rewrites and redirects terminate in another DC/OS API route, with the notable exception of `/login`, which uses OpenID Connect to authorize with an external identity provider and then redirects back to the DC/OS API.
 
