@@ -279,6 +279,8 @@ To install DC/OS:
 
 1.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting docs][9]
 
+    ![DC/OS dashboard](/docs/1.9/usage/img/dcos-gui.png)
+
 ### Next Steps
 
 - [Add users to your cluster][10]

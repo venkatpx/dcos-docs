@@ -327,7 +327,7 @@ To install DC/OS:
 
     You are done!
 
-    ![dashboard](../img/ui-dashboard.gif)
+    ![DC/OS dashboard](/docs/1.9/usage/img/dcos-gui.png)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.
