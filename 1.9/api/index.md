@@ -40,7 +40,7 @@ To determine the URL of your cluster, see [Cluster Access](/docs/1.9/api/access/
     ${cluster-url}/${route}/${component-resource-path}
     ```
 
-    For example, get the list of running Marathon applications from: `https://dcos.example.com/marathon/v2/apps`
+    For example, get the Mesos version from: `https://dcos.example.com/mesos/version`
 
 - **File routes** have no backend component, but may serve a directory of files or a single file. So for file routes, specify the file path instead of the backend component resource path.
 
