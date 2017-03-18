@@ -1,8 +1,7 @@
-swagger: 2.0
+swagger: '2.0'
 info:
-  version: 2.0
+  version: '2.0'
   title: Marathon REST API
-  description: ''
 host: example.com
 basePath: /service/marathon
 schemes:
@@ -16,7 +15,7 @@ paths:
     post:
       description: Restart all tasks of this application.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsRestartByAppId
       produces:
       - application/json
@@ -65,7 +64,7 @@ paths:
     delete:
       description: Kill the task with ID `task_id` that belongs to the application `app_id`.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsTasksByAppIdAndTaskId
       produces:
       - application/json
@@ -128,7 +127,7 @@ paths:
     get:
       description: List all running tasks for application `app_id`.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsTasksByAppId
       produces:
       - application/json
@@ -163,7 +162,7 @@ paths:
     delete:
       description: Kill tasks that belong to the application `app_id`
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsTasksByAppId1
       produces:
       - application/json
@@ -227,7 +226,7 @@ paths:
     get:
       description: List the configuration of the application with id `app_id` at version `version`.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsVersionsByAppIdAndVersion
       produces:
       - application/json
@@ -267,7 +266,7 @@ paths:
     get:
       description: List the versions of the application with id `app_id`
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsVersionsByAppId
       produces:
       - application/json
@@ -303,7 +302,7 @@ paths:
     get:
       description: Get the application with id `app_id`. The response includes some status information besides the current configuration of the app. You can specify optional embed arguments, to get more embedded information.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsByAppId
       produces:
       - application/json
@@ -369,7 +368,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsByAppId3
       produces:
       - application/json
@@ -448,7 +447,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsByAppId2
       produces:
       - application/json
@@ -499,7 +498,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2AppsByAppId1
       produces:
       - application/json
@@ -561,7 +560,7 @@ paths:
     get:
       description: Get the list of running applications. Several filters can be applied via the following query parameters.
       tags:
-      - v2
+      - v2/apps
       operationId: V2Apps
       produces:
       - application/json
@@ -659,7 +658,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2Apps3
       produces:
       - application/json
@@ -732,7 +731,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2Apps1
       produces:
       - application/json
@@ -792,7 +791,7 @@ paths:
 
         Note&#58;  This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
       tags:
-      - v2
+      - v2/apps
       operationId: V2Apps2
       produces:
       - application/json
@@ -849,7 +848,7 @@ paths:
       description: >
         List all the pod-based services in the system.
       tags:
-      - v2
+      - v2/pods
       operationId: V2Pods
       produces:
       - application/json
@@ -897,7 +896,7 @@ paths:
       description: >
         Create and start a new pod-based service.
       tags:
-      - v2
+      - v2/pods
       operationId: V2Pods1
       produces:
       - application/json
@@ -942,7 +941,7 @@ paths:
     get:
       description: Get the status for all pods
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsStatus
       produces:
       - application/json
@@ -991,7 +990,7 @@ paths:
       description: >
         Get the pod at the given id
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsById
       produces:
       - application/json
@@ -1028,7 +1027,7 @@ paths:
       description: >
         Update an existing pod-based service.
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsById2
       produces:
       - application/json
@@ -1087,7 +1086,7 @@ paths:
       description: >
         Delete an existing pod-based service.
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsById1
       produces:
       - application/json
@@ -1123,7 +1122,7 @@ paths:
       description: >
         Get the status of the pod with the given id
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsStatusById
       produces:
       - application/json
@@ -1161,7 +1160,7 @@ paths:
       description: >
         List the versions of this pod.
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsVersionsById
       produces:
       - application/json
@@ -1201,7 +1200,7 @@ paths:
       description: >
         List the versions of this pod.
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsVersionsByIdAndVersion
       produces:
       - application/json
@@ -1244,7 +1243,7 @@ paths:
       description: >
         Kill the given instance of the pod
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsInstancesByIdAndInstance
       produces:
       - application/json
@@ -1286,7 +1285,7 @@ paths:
       description: >
         Kill the given instances of the pod
       tags:
-      - v2
+      - v2/pods
       operationId: V2PodsInstancesById
       produces:
       - application/json
@@ -1332,7 +1331,7 @@ paths:
     delete:
       description: Revert the deployment with `deployment_id` by creating a new deployment which reverses all changes.
       tags:
-      - v2
+      - v2/deployments
       operationId: V2DeploymentsByDeploymentId
       produces:
       - application/json
@@ -1396,7 +1395,7 @@ paths:
 
         * <code>ResolveArtifacts</code> Resolve all artifacts of an application
       tags:
-      - v2
+      - v2/deployments
       operationId: V2Deployments
       produces:
       - application/json
@@ -1462,7 +1461,7 @@ paths:
     get:
       description: List all versions the group with the specified path.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsVersions
       produces:
       - application/json
@@ -1505,7 +1504,7 @@ paths:
     get:
       description: Get the group with all applications and all transitive child groups.
       tags:
-      - v2
+      - v2/groups
       operationId: V2Groups
       produces:
       - application/json
@@ -1597,7 +1596,7 @@ paths:
         * Provide only the `scaleBy` field will scale all transitive applications instance counts by the given factor.
 
 
-        When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed â the scaleBy value will not be applied.
+        When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed - the scaleBy value will not be applied.
 
         A deployment can run forever. This is the case, when the new application has a problem and does not become healthy. In this case, human interaction is needed with 2 possible choices
 
@@ -1609,7 +1608,7 @@ paths:
 
         Since the deployment of the group can take a considerable amount of time, this endpoint returns immediately with a version. The failure or success of the action is signalled via event. There is a group_change_success and group_change_failed with the given version.
       tags:
-      - v2
+      - v2/groups
       operationId: V2Groups3
       produces:
       - application/json
@@ -1691,7 +1690,7 @@ paths:
           * Provide only the `scaleBy` field will scale all transitive applications instance counts by the given factor.
 
 
-          When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed â the scaleBy value will not be applied.
+          When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed - the scaleBy value will not be applied.
 
           A deployment can run forever. This is the case, when the new application has a problem and does not become healthy. In this case, human interaction is needed with 2 possible choices
 
@@ -1710,7 +1709,7 @@ paths:
     post:
       description: Create and start a new application group. Application groups can contain other application groups.
       tags:
-      - v2
+      - v2/groups
       operationId: V2Groups1
       produces:
       - application/json
@@ -1780,7 +1779,7 @@ paths:
     delete:
       description: Destroy a group. All data about that group and all associated applications will be deleted. The failure or success of the action is signalled via events. There is a group_change_success and group_change_failed with the given version.
       tags:
-      - v2
+      - v2/groups
       operationId: V2Groups2
       produces:
       - application/json
@@ -1835,7 +1834,7 @@ paths:
     get:
       description: List all versions the group with the specified path.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsVersionsByGroupId
       produces:
       - application/json
@@ -1867,7 +1866,7 @@ paths:
     get:
       description: Get the group with all applications and all transitive child groups.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsByGroupId
       produces:
       - application/json
@@ -1948,7 +1947,7 @@ paths:
         * Provide only the `scaleBy` field will scale all transitive applications instance counts by the given factor.
 
 
-        When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed â the scaleBy value will not be applied.
+        When one of version or scaleBy are set, nothing else than a version change or transitive instance count scaling will be applied. If both version and scaleBy are set, only a version rollback will be performed - the scaleBy value will not be applied.
 
         A deployment can run forever. This is the case, when the new application has a problem and does not become healthy. In this case, human interaction is needed with 2 possible choices
 
@@ -1960,7 +1959,7 @@ paths:
 
         Since the deployment of the group can take a considerable amount of time, this endpoint returns immediately with a version. The failure or success of the action is signalled via event. There is a group_change_success and group_change_failed with the given version.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsByGroupId3
       produces:
       - application/json
@@ -2017,7 +2016,7 @@ paths:
     post:
       description: Create and start a new application group. Application groups can contain other application groups.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsByGroupId1
       produces:
       - application/json
@@ -2074,7 +2073,7 @@ paths:
     delete:
       description: Destroy a group. All data about that group and all associated applications will be deleted. The failure or success of the action is signalled via events. There is a group_change_success and group_change_failed with the given version.
       tags:
-      - v2
+      - v2/groups
       operationId: V2GroupsByGroupId2
       produces:
       - application/json
@@ -2119,7 +2118,7 @@ paths:
     post:
       description: Kill a list of running tasks.
       tags:
-      - v2
+      - v2/tasks
       operationId: V2TasksDelete
       produces:
       - application/json
@@ -2197,7 +2196,7 @@ paths:
     get:
       description: List all running tasks.
       tags:
-      - v2
+      - v2/tasks
       operationId: V2Tasks
       produces:
       - application/json
@@ -2233,7 +2232,7 @@ paths:
     get:
       description: Download an artifact from the artifact store. The path is the relative path in the artifact store.
       tags:
-      - v2
+      - v2/artifacts
       operationId: V2ArtifactsByPath
       produces:
       - application/json
@@ -2257,7 +2256,7 @@ paths:
     put:
       description: Upload an artifact to the artifact store. A multipart form upload request has to be performed. The form parameter name has to be ```file```. The path used to store the file is taken from the url path. The response holds the URL of the artifact in the artifact store in the Location Header.
       tags:
-      - v2
+      - v2/artifacts
       operationId: V2ArtifactsByPath3
       produces:
       - application/json
@@ -2284,7 +2283,7 @@ paths:
     post:
       description: Upload an artifact to the artifact store. A multipart form upload request has to be performed. The form parameter name has to be ```file```. The path used to store the file is taken from the url path. The response holds the URL of the artifact in the artifact store in the Location Header.
       tags:
-      - v2
+      - v2/artifacts
       operationId: V2ArtifactsByPath1
       produces:
       - application/json
@@ -2311,7 +2310,7 @@ paths:
     delete:
       description: Delete an artifact from the artifact store. The path is the relative path in the artifact store.
       tags:
-      - v2
+      - v2/artifacts
       operationId: V2ArtifactsByPath2
       produces:
       - application/json
@@ -2336,7 +2335,7 @@ paths:
     post:
       description: Upload an artifact to the artifact store. A multipart form upload request has to be performed. The form parameter name has to be ```file```. The filename used in the artifact store, is the same as given by the form parameter. The response holds the URL of the artifact in the artifact store in the Location Header.
       tags:
-      - v2
+      - v2/artifacts
       operationId: V2Artifacts
       produces:
       - application/json
@@ -2367,7 +2366,7 @@ paths:
 
         Note for ApiConsole&#58; this function will not yield the expected result from inside ApiConsole.
       tags:
-      - v2
+      - v2/events
       operationId: V2Events
       produces:
       - application/json
@@ -2395,7 +2394,7 @@ paths:
     get:
       description: List all event subscriber callback URLs. _NOTE To activate this endpoint, you need to startup a Marathon instance with `--event_subscriber http_callback`_
       tags:
-      - v2
+      - v2/eventSubscriptions
       operationId: V2EventSubscriptions
       produces:
       - application/json
@@ -2429,7 +2428,7 @@ paths:
     post:
       description: Subscribe to the event callback mechanism with the specified callback URL.
       tags:
-      - v2
+      - v2/eventSubscriptions
       operationId: V2EventSubscriptions1
       produces:
       - application/json
@@ -2453,7 +2452,7 @@ paths:
     delete:
       description: Unregister a callback URL from the event subscribers list.
       tags:
-      - v2
+      - v2/eventSubscriptions
       operationId: V2EventSubscriptions2
       produces:
       - application/json
@@ -2478,7 +2477,7 @@ paths:
     get:
       description: Get info about the Marathon Instance
       tags:
-      - v2
+      - v2/info
       operationId: V2Info
       produces:
       - application/json
@@ -2513,7 +2512,7 @@ paths:
     get:
       description: Returns the current leader.
       tags:
-      - v2
+      - v2/leader
       operationId: V2Leader
       produces:
       - application/json
@@ -2551,7 +2550,7 @@ paths:
     delete:
       description: Causes the current leader to abdicate, triggering a new election.
       tags:
-      - v2
+      - v2/leader
       operationId: V2Leader1
       produces:
       - application/json
@@ -2590,7 +2589,7 @@ paths:
     get:
       description: Get request is handled by the plugin.
       tags:
-      - v2
+      - v2/plugins
       operationId: V2PluginsByPluginIdAndPath
       produces:
       - application/json
@@ -2615,7 +2614,7 @@ paths:
     put:
       description: Put request is handled by the plugin.
       tags:
-      - v2
+      - v2/plugins
       operationId: V2PluginsByPluginIdAndPath3
       produces:
       - application/json
@@ -2640,7 +2639,7 @@ paths:
     post:
       description: Post request is handled by the plugin.
       tags:
-      - v2
+      - v2/plugins
       operationId: V2PluginsByPluginIdAndPath1
       produces:
       - application/json
@@ -2665,7 +2664,7 @@ paths:
     delete:
       description: Delete request is handled by the plugin.
       tags:
-      - v2
+      - v2/plugins
       operationId: V2PluginsByPluginIdAndPath2
       produces:
       - application/json
@@ -2691,7 +2690,7 @@ paths:
     get:
       description: Returns the list of all loaded plugins
       tags:
-      - v2
+      - v2/plugins
       operationId: V2Plugins
       produces:
       - application/json
@@ -2737,7 +2736,7 @@ paths:
 
         You can see this delay for every application with the seconds to wait before the next launch will be tried.
       tags:
-      - v2
+      - v2/queue
       operationId: V2Queue
       produces:
       - application/json
@@ -2807,7 +2806,7 @@ paths:
 
         The effect is, that the tasks of this application will be launched immediately.
       tags:
-      - v2
+      - v2/queue
       operationId: V2QueueDelayByAppId
       produces:
       - application/json
