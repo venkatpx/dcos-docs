@@ -4,7 +4,7 @@ nav_title: Package API
 menu_order: 10
 ---
 
-The package management API allows you to install DC/OS services from DC/OS packages stored in a DC/OS package registry, such as the [Mesosphere Universe](/docs/1.9/overview/concepts/#mesosphere-universe).
+The Package Management API allows you to install DC/OS services from DC/OS packages stored in a DC/OS package registry, such as the [Mesosphere Universe](/docs/1.9/overview/concepts/#mesosphere-universe).
 
 The [DC/OS Package Manager (Cosmos) component](/docs/1.9/overview/architecture/components/#dcos-package-manager) runs on all master nodes.
 
