@@ -18,7 +18,7 @@ For more information about using Marathon, see [Managing Services](/docs/1.9/usa
 Access to the Marathon API is proxied through the Admin Router on each master node using the following route:
 
 ```
-/marathon/
+/service/marathon/
 ```
 
 
