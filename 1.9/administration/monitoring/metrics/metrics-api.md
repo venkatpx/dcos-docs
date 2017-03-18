@@ -1,32 +1,53 @@
 ---
-post_title: Metrics API 
+post_title: Metrics API
 feature_maturity: preview
 menu_order: 1
 ---
 
-You can use your custom built tools to get any metric, either from running Mesos tasks or the hosts which run your DC/OS cluster. 
+The Metrics API exposes node, container, and application metrics.
+
+The Metrics API is backed by the [DC/OS Metrics component](/docs/1.9/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
+
+For more information about using the Metrics API, see [Metrics](/docs/1.9/administration/metrics/).
 
 
-# About the Metrics API
+## Routes
 
-The HTTP producer is enabled by default and exposes a JSON-formatted HTTP API on each node in the cluster. These APIs include both metrics datapoints as well as dimensions, or key/value pairs with relevant node and cluster metadata.
+Access to the Metrics API is proxied through the Admin Router on each node using the following route:
 
-# Request and response format
+```
+/system/v1/metrics/v1/
+```
 
-The API supports JSON only. You must include application/json as your Content-Type in the HTTP header, as shown below.
+Access to the Metrics API of the agent nodes is also proxied through the master nodes, so that it can be accessed from outside of the cluster:
 
-```bash
+```
+/system/v1/agent/{agent_id}/metrics/v1/
+```
+
+To determine the address of your cluster, see [Cluster Access](/docs/1.9/api/access/).
+
+
+## Format
+
+The Metrics API request and response bodies are formatted in JSON.
+
+Requests must include the accept header:
+
+```
 Accept: application/json
 ```
 
-# Hostname and base path
-  
-The metrics endpoints are all *service-specific*. The metrics component is designed to be put behind Admin Router, which provides security for these endpoints. On a DC/OS cluster, the final URL to query will resemble:
+Responses will include the content type header:
 
 ```
-http://<host>/system/v1/metrics/v0/<endpoint>
+Content-Type: application/json
 ```
-# API reference
+
+
+## Resources
+
+The following resources are available under both of the above routes:
 
 <div class="swagger-section">
   <div id="message-bar" class="swagger-ui-wrap message-success" data-sw-translate=""></div>
