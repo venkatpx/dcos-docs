@@ -32,3 +32,7 @@ dcos task exec [OPTION]
 | Command | Description |
 |---------|-------------|
 | [dcos task](/docs/1.9/usage/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
+
+# Examples
+
+For examples, see the debugging [documentation](/docs/1.9/administration/debugging/quickstart/).
