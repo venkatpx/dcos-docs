@@ -4,12 +4,12 @@ menu_order: 0
 ---
 
 # Description
-Launch a process inside of a task container.
+Launch a process (`<cmd>`) inside of a task (`<task>`) container.
 
 # Usage
 
 ```bash
-dcos task exec [OPTION]
+dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 ```
 
 # Options
@@ -23,7 +23,7 @@ dcos task exec [OPTION]
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<args>`   |             |  Additional arguments to pass to the command. |
+| `<args>`   |             |  Additional arguments to pass to the command (`<cmd>`). |
 | `<cmd>`   |             |  The command to run inside the remote task's container. For example: `/bin/bash`. |
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
 
