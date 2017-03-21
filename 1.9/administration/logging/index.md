@@ -1,6 +1,6 @@
 ---
 post_title: Logging
-feature_maturity: experimental
+feature_maturity: preview
 menu_order: 3.4
 ---
 
