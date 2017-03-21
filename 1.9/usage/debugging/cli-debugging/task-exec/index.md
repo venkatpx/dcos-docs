@@ -1,5 +1,5 @@
 ---
-nav_title: dcos task exec
+post_title: dcos task exec
 feature_maturity: experimental
 menu_order: 10
 ---
