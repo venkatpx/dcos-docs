@@ -1,6 +1,6 @@
 ---
 post_title: dcos task exec Quick Start
-feature_maturity: experimental
+feature_maturity: preview 
 menu_order: 0
 ---
 
