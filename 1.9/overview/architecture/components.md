@@ -479,7 +479,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
 <p>
   <strong>System Service(s):</strong>
   <ul>
-    <li><code class="nowrap">dcos-minuteman.service</code></li>
+    <li>N/A - Included in Navstar</li>
   </ul>
 </p>
 <p>
