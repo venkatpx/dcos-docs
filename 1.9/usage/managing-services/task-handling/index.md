@@ -1,14 +1,14 @@
 ---
 post_title: Task Handling
 nav_title: Task Handling
-menu_order: 20
+menu_order: 1.5
 ---
 
 Marathon handles tasks in the following ways. You can consult the DC/OS logs for these messages or query the status of the task via the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon REST API](https://mesosphere.github.io/marathon/docs/generated/api.html) (/v2/events).
 
 You can [configure Marathon's behavior when a task is unreachable](/docs/1.9/usage/task-handling/configure-task-handling.md).
 
-![Task Handling Flow](/docs/1.9/usage/marathon/img/task-handling.png)
+![Task Handling Flow](/docs/1.9/usage/managing-services/img/task-handling.png)
 
 # Terminal states
 

@@ -1,6 +1,6 @@
 ---
 nav_title: dcos task exec
-feature_maturity: preview 
+feature_maturity: experimental
 menu_order: 10
 ---
 
